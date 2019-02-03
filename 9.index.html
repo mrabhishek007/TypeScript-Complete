@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            font-size: 18px;
+            font-family: Verdana,serif ;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>External Library Integeration</title>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+        // set our baseURL reference path
+        SystemJS.config({
+            map:{
+                /* Enables external library import to typescript (key-name('jQuery') can be anything but you have to use same key-name also in typescript import statement) */
+                "jQuery": "node_modules/jquery/dist/jquery.min.js"
+            },
+            baseURL: '/',
+            defaultJSExtensions: true
+        });
+        SystemJS.import('9.library_integration.js');
+    </script>
+
+</head>
+<body>
+        <p id="app">Hello! please change my color using jQuery...</p>
+</body>
+</html>
